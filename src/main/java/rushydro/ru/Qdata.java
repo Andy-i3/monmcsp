@@ -37,9 +37,12 @@ public class Qdata {
 
 	public static void main(String[] args) throws Exception {
 
-		if (args.length>0)  { CONFIG_FILE=args[0]; }
-				else { CONFIG_FILE=".\\config\\macroscop.cfg"; }
-			new Qdata();
+		if (args.length > 0) {
+			CONFIG_FILE = args[0];
+		} else {
+			CONFIG_FILE = ".\\config\\macroscop.cfg";
+		}
+		new Qdata();
 		URL url = createUrl( LIST_PARAM_CAM );
 		// JSON запрос к API Macropscop
 		String file = parseCurrentJson( parseUrl( url ) );
@@ -70,13 +73,16 @@ public class Qdata {
 		}
 	}
 
-	/** построчно считываем результат в объект StringBuilder
+	/**
+	 * построчно считываем результат в объект StringBuilder
 	 * Добовляем тег data_json
 	 * Пропускаем первые четыре строки, а остальные считываем в буфер
 	 */
 
 	private static String parseUrl(URL url) {
-		if (url == null) return "";
+		if (url == null) {
+			return "";
+		}
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append( "{" );
 		stringBuilder.append( "\"data_json\":\n" );
@@ -86,10 +92,11 @@ public class Qdata {
 
 			while ((inputLine = in.readLine()) != null) {
 				i++;
-				if (i > 4 )stringBuilder.append( inputLine );
+				if (i > 4) {
+					stringBuilder.append( inputLine );
+				}
 			}
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		stringBuilder.append( "}" );
