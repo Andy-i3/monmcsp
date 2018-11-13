@@ -106,6 +106,7 @@ public class Qdata {
     // Парсим массив данных и выводим на экран
     public static String parseCurrentJson(String resultJson) {
         String resultToFile = "";
+
         try {
             JSONObject jsonObject = (JSONObject) JSONValue.parseWithException( resultJson );
             JSONArray ipcamArray0 = (JSONArray) jsonObject.get( "data_json" );
