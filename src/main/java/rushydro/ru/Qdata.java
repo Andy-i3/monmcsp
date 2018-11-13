@@ -79,7 +79,7 @@ public class Qdata {
      * Пропускаем первые четыре строки, а остальные считываем в буфер
      */
 
-    private static String parseUrl(URL url) {
+    public static String parseUrl(URL url) {
         if (url == null) {
             return "";
         }
