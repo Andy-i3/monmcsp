@@ -22,8 +22,15 @@ import java.util.Properties;
 @SuppressWarnings("ALL")
 public class Qdata {
 
-    // @param Чтение переменной LIST_PARAM_CAM (запрос JSON) из конфигурационного файла macroscop.cfg
-    // @param Чтение переменной NAME_SERVER_CAM (имя сервера) из конфигурационного файла macroscop.cfg
+    /**
+     * <p>
+     * The http string query to servers
+     * @param Чтение переменной LIST_PARAM_CAM (запрос JSON) from config file macroscop.cfg
+     * <p>
+     * The DNS name Macroscop server's
+     * @param Чтение переменной NAME_SERVER_CAM (имя сервера) from config file macroscop.cfg
+     **/
+
     private static String LIST_PARAM_CAM;
     private static String NAME_SERVER_CAM;
     private static String CONFIG_FILE;
