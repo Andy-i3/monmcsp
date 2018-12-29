@@ -1,3 +1,5 @@
+package rushydro.ru;
+
 /*
  * Используется для мониторинга работоспособности IP камер
  * и проверки записи Архива с помощью API Macroscop
@@ -26,9 +28,12 @@ public class Qdata {
      * <p>
      * The http string query to servers
      * @param Чтение переменной LIST_PARAM_CAM (запрос JSON) from config file macroscop.cfg
-     * <p>
+     * Пример: LIST_PARAM_CAM = http://[NAME_SERVER]:[PORT]/command?type=getchannelsstates&login=[NAME_USER]&password=[PASSOWRD_MD5]&responsetype=json
+     *
      * The DNS name Macroscop server's
      * @param Чтение переменной NAME_SERVER_CAM (имя сервера) from config file macroscop.cfg
+     * Пример: NAME_SERVER_CAM = [NAME_SERVER]
+     * <p>
      **/
 
     private static String LIST_PARAM_CAM;
@@ -42,7 +47,7 @@ public class Qdata {
         NAME_SERVER_CAM = props.getProperty( "NAME_SERVER_CAM" );
     }
 
-    public static void main(String[] args) throws Exception {
+    public  static void main(String[] args) throws Exception {
 
         if (args.length > 0) {
             CONFIG_FILE = args[0];
@@ -53,8 +58,9 @@ public class Qdata {
         URL url = createUrl( LIST_PARAM_CAM );
         // JSON запрос к API Macropscop
         String file = parseCurrentJson( parseUrl( url ) );
+        // filesave( parseUrl( url) );
         System.out.print( file );
-        // FileSave(file);
+        //filesave( file );
 
     }
 
