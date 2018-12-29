@@ -38,9 +38,10 @@ public class Qdata {
 
     private static String LIST_PARAM_CAM;
     private static String NAME_SERVER_CAM;
-    private static String CONFIG_FILE;
+    private static String CONFIG_FILE = ".\\config\\macroscop.cfg";
 
     public Qdata() throws IOException {
+
         Properties props = new Properties();
         props.load( new FileInputStream( new File( CONFIG_FILE ) ) );
         LIST_PARAM_CAM = props.getProperty( "LIST_PARAM_CAM" );
@@ -49,11 +50,9 @@ public class Qdata {
 
     public  static void main(String[] args) throws Exception {
 
-        if (args.length > 0) {
-            CONFIG_FILE = args[0];
-        } else {
-            CONFIG_FILE = ".\\config\\macroscop.cfg";
-        }
+        if (args.length > 0) { CONFIG_FILE = args[0]; }
+
+
         new Qdata();
         URL url = createUrl( LIST_PARAM_CAM );
         // JSON запрос к API Macropscop

@@ -17,7 +17,6 @@ public class QdataTest {
             }
 
     public String FRead(String namefile) throws IOException {
-
         InputStreamReader isr = new InputStreamReader( new FileInputStream( namefile ), "CP1251" );
         char[] cbuf = new char[8192];
         StringBuilder sb = new StringBuilder();
