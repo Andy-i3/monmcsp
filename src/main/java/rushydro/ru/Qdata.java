@@ -27,9 +27,10 @@ public class Qdata {
     /**
      * <p>
      * The http string query to servers
+     *
      * @param Чтение переменной LIST_PARAM_CAM (запрос JSON) from config file macroscop.cfg
      * Пример: LIST_PARAM_CAM = http://[NAME_SERVER]:[PORT]/command?type=getchannelsstates&login=[NAME_USER]&password=[PASSOWRD_MD5]&responsetype=json
-     *
+     * <p>
      * The DNS name Macroscop server's
      * @param Чтение переменной NAME_SERVER_CAM (имя сервера) from config file macroscop.cfg
      * Пример: NAME_SERVER_CAM = [NAME_SERVER]
@@ -37,7 +38,7 @@ public class Qdata {
      **/
 
     private static String LIST_PARAM_CAM;
-    private static String NAME_SERVER_CAM;
+    private static String NAME_SERVER_CAM = "SR-DC-043.corp.gidroogk.com";
     private static String CONFIG_FILE = ".\\config\\macroscop.cfg";
 
     public Qdata() throws IOException {
@@ -48,9 +49,11 @@ public class Qdata {
         NAME_SERVER_CAM = props.getProperty( "NAME_SERVER_CAM" );
     }
 
-    public  static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
 
-        if (args.length > 0) { CONFIG_FILE = args[0]; }
+        if (args.length > 0) {
+            CONFIG_FILE = args[0];
+        }
 
 
         new Qdata();
@@ -75,7 +78,7 @@ public class Qdata {
     /**
      * Запись данных в файл
      */
-    public static void filesave(String text) {
+    private static void filesave(String text) {
 
         try (FileWriter writer = new FileWriter( "notes3.txt", false )) {
             writer.write( text );
@@ -91,7 +94,7 @@ public class Qdata {
      * Пропускаем первые четыре строки, а остальные считываем в буфер
      */
 
-    public static String parseUrl(URL url) {
+    private static String parseUrl(URL url) {
         if (url == null) {
             return "";
         }
