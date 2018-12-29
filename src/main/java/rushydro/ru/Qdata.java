@@ -38,7 +38,7 @@ public class Qdata {
      **/
 
     private static String LIST_PARAM_CAM;
-    private static String NAME_SERVER_CAM = "SR-DC-043.corp.gidroogk.com";
+    private static String NAME_SERVER_CAM = "NAME_VIDEO_SERVER";
     private static String CONFIG_FILE = ".\\config\\macroscop.cfg";
 
     public Qdata() throws IOException {
