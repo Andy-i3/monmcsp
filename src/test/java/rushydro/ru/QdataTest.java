@@ -12,7 +12,6 @@ public class QdataTest {
 
     @Test
     public void testparseCurrentJson() throws IOException {
-        // Qdata qdata = new Qdata();
         String result = Qdata.parseCurrentJson( FRead( "parseurl.txt" ) );
         String parse = FRead( "result.txt" );
         assertEquals( result, parse );
