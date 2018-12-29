@@ -27,5 +27,5 @@ config/
 
 .idea
 *.iml
-*.txt
+
 
